@@ -1,0 +1,10 @@
+<h2><a href="/">ESP-8266 Temperature Server</a></h2>
+</div><p>
+Access Point and Station<br/>
+SSID is something like YoT-1234567<br/>
+PASS is in the manual<br/>
+AP is 192.168.10.1 with DHCP<br/>
+You can change place, SSID and PASS to connect to WiFi.<br/>
+Settings must be made on address bar<br/>
+Enjoy</p>
+
