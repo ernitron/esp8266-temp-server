@@ -1,5 +1,4 @@
--- ds18b20 server for NODEMCU 
-print('Server start')
+-- Reference server for NodeMCU 
 
 -- Defaults
 local wifiConfig = {}
@@ -15,15 +14,15 @@ if file.open('wifi.config', 'r') then
     file.close()
     print ('Wifi config', ssid, pwd)
 else
-    ssid = 'YpkeTron24'
-    pwd  = 'BellaBrutta789'
+    ssid = 'YOURSID'
+    pwd  = 'YOURPASS'
 end
 
 
 -- WiFi Config
 wifiConfig.accessPointConfig = {}
 wifiConfig.accessPointConfig.ssid = "YoT-"..node.chipid()   -- Name of the SSID to create
-wifiConfig.accessPointConfig.pwd = "BellaBrutta789"   -- WiFi password - at least 8 characters
+wifiConfig.accessPointConfig.pwd = "DefaultPass"   -- WiFi password - at least 8 characters
 wifiConfig.accessPointIpConfig = {}
 wifiConfig.accessPointIpConfig.ip = "192.168.10.1"
 wifiConfig.accessPointIpConfig.netmask = "255.255.255.0"

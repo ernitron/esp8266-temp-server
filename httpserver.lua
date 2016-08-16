@@ -8,7 +8,7 @@ local function httpheader(code, extension, title, refresh)
    end
    local function getMimeType(ext)
       -- A few MIME types. Keep list short. If you need something that is missing, let's add it.
-      local mt = {css = "text/css", gif = "image/gif", html = "text/html", ico = "image/x-icon", jpeg = "image/jpeg", jpg = "image/jpeg", js = "application/javascript", json = "application/json", png = "image/png", xml = "text/xml"}
+      local mt = {css = "text/css", gif = "image/gif", html = "text/html", jpg = "image/jpeg", js = "application/javascript", json = "application/json", png = "image/png", xml = "text/xml"}
       if mt[ext] then return mt[ext] else return "text/plain" end
    end
 
