@@ -12,7 +12,7 @@ end
 t = require('ds18b20')
      
 return function()
-    local register_server = 'http://tempserver.ypketron.eu:8805/rt'
+    local register_server = 'http://sample.example.com/server'
     if file.open('register.txt', 'r') then
         register_server = file.readline()
         register_server = string.gsub(register_server, '\n', '')
