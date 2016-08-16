@@ -6,3 +6,7 @@ This is an higly experimental web server and http register application for a tem
 It is mainly used for the LESS THAN 5$ (aliexpress based) temp sensor with an ESP8266. Awesome!
 
 It is based on NODEMCU/LUA
+
+- Based on LUA NodeMCU httpserver by Marcos Kirsch (forgot the link sorry)
+- heavely Modified by Erni Tron
+
