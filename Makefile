@@ -4,10 +4,11 @@
 # Path to nodemcu-uploader (https://github.com/kmpm/nodemcu-uploader)
 NODEMCU-UPLOADER=nodemcu-uploader.py
 NODEMCU-UPLOADER=/usr/local/bin/nodemcu-uploader
+ESPTOOL=/opt/ESP8266/esptool/esptool.py 
 # Serial port
 #PORT=/dev/cu.SLAB_USBtoUART
 PORT=/dev/ttyUSB0
-SPEED=9600
+SPEED=115200
 
 ######################################################################
 # End of user config
@@ -25,12 +26,16 @@ LUA_FILES := \
 
 FILE = httpserver.lua
 
+
+erase:
+	$(ESPTOOL) --port $(PORT) erase_flash 
+
 # FLASH
 flash:
-	cd /opt/ESP8266/nodemcu-firmware; make flash
+	$(ESPTOOL) --port /dev/ttyUSB0 write_flash 0x00000 /opt/ESP8266/nodemcu-firmware/bin/0x00000.bin 0x10000 /opt/ESP8266/nodemcu-firmware/bin/0x10000.bin
 
 # Upload all
-all: $(LUA_FILES) $(HTTP_FILES)
+install: $(LUA_FILES) $(HTTP_FILES)
 	python $(NODEMCU-UPLOADER) -b $(SPEED) -p $(PORT) upload $(foreach f, $^, $(f))
 
 # Print usage

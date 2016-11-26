@@ -2,8 +2,8 @@
 
 -- Defaults
 local wifiConfig = {}
-local ssid = nil
-local pwd  = nil
+local ssid 
+local pwd
 
 -- Read settings from file
 if file.open('wifi.config', 'r') then
@@ -12,10 +12,10 @@ if file.open('wifi.config', 'r') then
     pwd  = file.readline()
     pwd  = pwd:sub(1, -2)
     file.close()
-    print ('Wifi config', ssid, pwd)
+    print ('Wifi config ', ssid, pwd)
 else
-    ssid = 'YOURSID'
-    pwd  = 'YOURPASS'
+    -- file wifi.config MUST be present
+    print ('NO Wifi config', ssid, pwd)
 end
 
 
@@ -95,11 +95,11 @@ if (wifi.getmode() == wifi.STATION) or (wifi.getmode() == wifi.STATIONAP) then
     tmr.alarm(0, 2000, 1, function()
        local ip = wifi.sta.getip()
        if ip == nil and joinCounter < joinMaxAttempts then
-          print('Connecting to WiFi - Try '..joinCounter)
+          print('Connect WiFi - Try '..joinCounter)
           joinCounter = joinCounter +1
        else
           if joinCounter > joinMaxAttempts then
-             print('Cant connect to WiFi')
+             print('Cant connect WiFi')
           else
              print('IP: ', ip)
           end
